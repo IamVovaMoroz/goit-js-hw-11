@@ -15,9 +15,26 @@ const BASE_URL = 'https://pixabay.com/api/';
 
 // Получаем доступ к форме
 const searchFormRef = document.querySelector('#search-form');
-// const loadMoreBtnRef = document.querySelector('.load-more');
+const loadMoreBtnRef = document.querySelector('.load-more');
+const galleryRef = document.querySelector('.gallery');
 // const body = document.querySelector('body');
 
 // const galleryRef = document.querySelector('.gallery');
 // console.log(loadMoreBtnRef);
-console.log(searchFormRef);
+console.log(loadMoreBtnRef);
+
+let inputValue = '';
+let lastInputValue = '';
+let total = '';
+
+searchFormRef.addEventListener('submit', onSearch);
+
+function onSearch (event) {
+  event.preventDefault();
+  inputValue = event.currentTarget.searchQuery.value.trim();
+  console.log(inputValue);
+  if (inputValue === '') {
+    galleryRef.innerHTML = '';
+    Notiflix.Notify.failure('Please enter a keyword to continue the search');
+  }
+}
