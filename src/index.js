@@ -27,14 +27,32 @@ let inputValue = '';
 let lastInputValue = '';
 let total = '';
 
+let perPage = 40;
+let currentPage = 1;
+// Первоначально кнопка невидимая, появляется после 1 запроса
+loadMoreBtnRef.style.display = 'none';
+
 searchFormRef.addEventListener('submit', onSearch);
 
 function onSearch (event) {
   event.preventDefault();
   inputValue = event.currentTarget.searchQuery.value.trim();
   console.log(inputValue);
+  // Если строчка без значений, мы очищаем строчку,выводим сообщение и прекращаем выполнение
   if (inputValue === '') {
     galleryRef.innerHTML = '';
     Notiflix.Notify.failure('Please enter a keyword to continue the search');
+    return;
+  }
+  if (inputValue === lastInputValue) {
+    currentPage += 1;
+  }
+  if (inputValue === !lastInputValue) {
+    // Если значение инпута отличается от последнего, то новое значение импута запишется в переменную lastInputValue (теперь оно последнее значение ввода)
+    lastInputValue = inputValue;
+    // значение страницы становится 1, так как новый запрос и с 1 страницы
+    currentPage = 1;
+    // и мы очищаем сточку импута
+    galleryRef.innerHTML = '';
   }
 }
