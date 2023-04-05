@@ -1,1 +1,30 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+
+body{
+    margin: 20px;
+    background-color: lightblue;
+}
+.search-form{
+
+display: flex;
+justify-content: center;
+
+}
+
+.example{
+    display: none;
+}
+
+.search-form input{
+background-color: lightblue;
+border-radius: 10px;
+padding: 7px;
+margin: 10px;
+}
+
+.search-form button{
+    color: black;
+    border-radius: 10px;
+margin: 10px;
+padding: 7px;
+}
