@@ -1,6 +1,7 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
 body{
+    font-family: "italic", Times, serif;
     margin: 20px;
     background-color: lightblue;
 }
@@ -39,5 +40,75 @@ margin: 0 auto;
 }
 
 .gallery{
-    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  margin: 10px;
+  align-items: center;
+  gap: 10px;
+  
+
 }
+
+img{display: block;
+     height: 100%;
+    width: 100%;
+    box-shadow: inset 0px 0px 20px 20px #000, 0px 10px 15px 10px #000;
+
+    // Движение картинки
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+
+
+    // filter: grayscale(1); /* Черно-белый фильтр для изображения */
+    transition: 0.5s; /* Время изменения цвета изображения */
+
+}
+
+img:hover{
+    // filter: grayscale(0); /* Цветное изображение при наведении */
+    -webkit-transform: rotate(7deg); /* Градусы поворота можно изменить по необходимости */
+    transform: rotate(7deg); /* Градусы поворота можно изменить по необходимости */
+}
+  
+
+    .photo-card{
+        margin: 10px;
+  overflow: hidden;
+  border-radius: 3px;
+    }
+
+    .info{display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+
+
+    .nx-message{font-size: 150%; color: lightgray; text-shadow: 1px 1px;
+
+    }
+
+
+    .thumb{
+    //     display: inline-block; 
+    //    overflow: hidden;
+        height: 200px;
+        width: 320px;
+    }
+
+// Эфект приближения картинки
+    // .thumb{
+    //         display: inline-block; 
+    //        overflow: hidden;}
+//     .thumb img{
+//         transition: 1s; /* Время эффекта */
+//                 display: block;
+//     }
+
+
+// .thumb img:hover{
+//     transform: scale(1.2); /* Увеличиваем масштаб */
+//     }
+
+
+           
