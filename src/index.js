@@ -3,10 +3,10 @@ import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import debounce from 'lodash.debounce';
 import './sass/_common.scss';
-import { imageMarkup } from './JS/imagesMarkup';
+// import { markupImage } from './JS/imagesMarkup';
 
 import 'simplelightbox/dist/simple-lightbox.min.css';
-// import './js/notiflix.notification';
+
 var lightbox = new SimpleLightbox('.gallery a', {
   /* options */
 });
@@ -19,10 +19,6 @@ const BASE_URL = 'https://pixabay.com/api/';
 const searchFormRef = document.querySelector('#search-form');
 const loadMoreBtnRef = document.querySelector('.load-more');
 const galleryRef = document.querySelector('.gallery');
-
-// console.log(searchFormRef);
-// console.log(loadMoreBtnRef);
-// console.log(galleryRef);
 
 let inputValue = '';
 let lastInputValue = '';
@@ -131,7 +127,6 @@ async function addImages () {
     );
 
     return response.data;
-    // return promice;
   } catch (error) {
     console.log(error.message);
   }
