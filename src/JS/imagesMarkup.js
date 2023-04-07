@@ -1,4 +1,4 @@
-import { galleryRef } from '..index/';
+import { galleryRef } from '../index';
 
 export function markupImage (arrayOfResults) {
   markup = arrayOfResults
