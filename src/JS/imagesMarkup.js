@@ -1,7 +1,7 @@
 import { galleryRef } from '../index';
 let markup;
 export function markupImage (arrayOfResults) {
-  markup = arrayOfResults
+  return (markup = arrayOfResults
     .map(
       ({ largeImageURL, webformatURL, likes, views, comments, downloads }) =>
         `<div class="photo-card">
@@ -22,7 +22,7 @@ export function markupImage (arrayOfResults) {
                   </div>
                 </div>`
     )
-    .join('');
+    .join(''));
 
   galleryRef.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
