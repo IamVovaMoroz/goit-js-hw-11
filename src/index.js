@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import debounce from 'lodash.debounce';
 import './sass/_common.scss';
-import { markupImage } from './JS/imagesMarkup';
+// import { markupImage } from './JS/imagesMarkup';
 
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
