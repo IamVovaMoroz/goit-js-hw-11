@@ -22,7 +22,6 @@ export const galleryRef = document.querySelector('.gallery');
 
 let inputValue = '';
 let lastInputValue = '';
-let markup;
 
 let perPage = 40;
 let currentPage = 1;
