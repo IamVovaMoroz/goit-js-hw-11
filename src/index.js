@@ -19,7 +19,7 @@ const BASE_URL = 'https://pixabay.com/api/';
 const searchFormRef = document.querySelector('#search-form');
 const loadMoreBtnRef = document.querySelector('.load-more');
 export const galleryRef = document.querySelector('.gallery');
-
+let markup;
 let inputValue = '';
 let lastInputValue = '';
 
