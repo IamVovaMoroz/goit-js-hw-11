@@ -1,5 +1,5 @@
 import { galleryRef } from '../index';
-
+let markup;
 export function markupImage (arrayOfResults) {
   markup = arrayOfResults
     .map(
