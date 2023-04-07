@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import debounce from 'lodash.debounce';
 import './sass/_common.scss';
-// import { markupImage } from './JS/imagesMarkup';
+// import { markupImage } from '..src/';
 
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
@@ -22,7 +22,7 @@ export const galleryRef = document.querySelector('.gallery');
 
 let inputValue = '';
 let lastInputValue = '';
-let markup;
+// let markup;
 
 let perPage = 40;
 let currentPage = 1;
