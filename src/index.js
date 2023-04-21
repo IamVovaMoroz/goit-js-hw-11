@@ -158,3 +158,86 @@ function markupImage (arrayOfResults) {
   galleryRef.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
 }
+
+
+// Задача 9
+
+ const instance = axios.create({
+  baseURL: 'https://dummyjson.com/'
+})
+
+export function userAddByRequest (user) {
+  return instance.post(`users/add`, user)
+}
+
+// Вешаем слушателя на форму submit
+const formAddUserData = document.querySelector("#newUserForm")
+// console.log(formAddUserData)
+
+const forUserDataMarcupPlace = document.querySelector("#newUserSection")
+
+formAddUserData.addEventListener("submit", onFormAddUserData)
+
+function onFormAddUserData(event){
+  event.preventDefault();
+
+  const firstName = event.target.elements.firstName.value.trim()
+  console.log(firstName)
+  const lastName = event.target.elements.lastName.value.trim()
+  const email = event.target.elements.email.value.trim()
+  const password = event.target.elements.password.value.trim()
+  const birthDate = event.target.elements.birthDate.value.trim()
+  const age = event.target.elements.age.value.trim()
+  const address = event.target.elements.address.value.trim()
+  const city = event.target.elements.city.value.trim()
+  const postalCode = event.target.elements.postalCode.value.trim()
+  const state = event.target.elements.state.value.trim()
+
+  userAddByRequest({firstName ,lastName,  email, password, age, birthDate,  address: { address, city, postalCode, state  } }).then(({ data }) => {
+        function createNewUserMarkup (user) {
+          return `
+          
+          <p> firstName: ${user.firstName}</p><p>lastName: ${user.lastName}</p>
+          <p>email: ${user.email}</p>
+          <p>password: ${user.password}</p>
+          <p>age: ${user.age}</p>
+          <p>birthDate: ${user.birthDate}</p>
+          
+          <ul>
+          <p>User address: </p>
+          <li> Address: ${user.address.address}</li>
+          <li>City: ${user.address.city}</li>
+          <li>Postal Code: ${user.address.postalCode}</li>
+          <li>State: ${user.address.state}</li>
+
+          </ul>
+        
+          `
+        }
+        formAddUserData.innerHTML = createNewUserMarkup(data)
+      })
+
+
+}
+
+
+// const formNewProduct = document.querySelector('#new-product')
+// const newProductSection = document.querySelector('#newProductSection')
+
+// formNewProduct.addEventListener('submit', onFormNewProductSubmit)
+
+// function onFormNewProductSubmit (event) {
+//   event.preventDefault()
+
+//   const title = event.target.elements.title.value.trim()
+//   const description = event.target.elements.description.value.trim()
+//   const price = event.target.elements.price.value.trim()
+
+//   productAddByRequest({ title, description, price }).then(({ data }) => {
+//     function createNewProductMarkup (product) {
+//       return `<p> Model: ${product.title}</p><p>Description: ${product.description}</p><p>Price: ${product.price}$</p>
+
+//       `
+//     }
+//     newProductSection.innerHTML = createNewProductMarkup(data)
+//   })

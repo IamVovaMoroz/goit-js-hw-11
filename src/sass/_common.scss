@@ -112,5 +112,49 @@ img:hover{
 //     transform: scale(1.2); /* Увеличиваем масштаб */
 //     }
 
+// input{margin: 15px;}
+        //    .newUserForm{
+        //     display: flex;
+        //     gap: 15px;
+        //     margin: 15px;
+        //    }
 
-           
+// .container {
+//     display: flex;
+  
+//   }
+
+//   #newUserForm {
+//     display: table-row-group;
+//   }
+//   .form-row {
+//     display: table-row;
+//   }
+
+//   .form-row label,
+// .form-row input {
+//   display: table-cell;
+//   padding: 10px;
+// }
+
+// .form-row label {
+//   font-weight: bold;
+// }
+
+// .form-row input {
+//   width: 100%;
+// }
+
+// .form-user-button{
+//     border-radius: 5px;
+//     padding: 10px;
+// }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+  }
+  
+ 
