@@ -214,30 +214,70 @@ function onFormAddUserData(event){
         
           `
         }
-        formAddUserData.innerHTML = createNewUserMarkup(data)
+        forUserDataMarcupPlace.innerHTML = createNewUserMarkup(data)
       })
 
 
 }
 
 
-// const formNewProduct = document.querySelector('#new-product')
-// const newProductSection = document.querySelector('#newProductSection')
 
-// formNewProduct.addEventListener('submit', onFormNewProductSubmit)
+// const usersForm = document.querySelector('#userByNameForm')
+// const usersPlace = document.querySelector('#usersByName')
 
-// function onFormNewProductSubmit (event) {
+// usersForm.addEventListener('submit', onUsersFormSubmit)
+
+// function onUsersFormSubmit (event) {
 //   event.preventDefault()
+//   // Тут вводим event.target.elements потом значение с импута в html - name и value
+//   const usersNameInput = event.target.elements.name.value.trim()
+//   console.log(usersNameInput)
 
-//   const title = event.target.elements.title.value.trim()
-//   const description = event.target.elements.description.value.trim()
-//   const price = event.target.elements.price.value.trim()
-
-//   productAddByRequest({ title, description, price }).then(({ data }) => {
-//     function createNewProductMarkup (product) {
-//       return `<p> Model: ${product.title}</p><p>Description: ${product.description}</p><p>Price: ${product.price}$</p>
-
-//       `
-//     }
-//     newProductSection.innerHTML = createNewProductMarkup(data)
+//   getUserByName(usersNameInput).then(({ data: { users } }) => {
+//     let markupUser = users
+//       .map(
+//         user =>
+//           `<li><p> Вот данные User(s) с FirstName: ${user.firstName}</p><p>LastName: ${user.lastName}</p><p>Age: ${user.age}</p><p>Email: ${user.email}</p><p>Phone: ${user.phone}</p></li>`
+//       )
+//       .join('')
+//     usersPlace.innerHTML = markupUser
 //   })
+// }
+
+const instanc = axios.create({
+  baseURL: 'https://dummyjson.com/'
+})
+
+function getAllPostsByKeywords (posts) {
+  return instanc.get(`posts/search?q=${posts}`)
+}
+
+const postsForm = document.querySelector("#filteredPostsForm")
+
+
+postsForm.addEventListener("submit", onPostsForm)
+
+function onPostsForm (event){
+  event.preventDefault()
+
+  const inputKeywords = event.target.elements.keyword.value
+
+  getAllPostsByKeywords(inputKeywords).then(({data: {posts}})=>{
+
+    // console.log({data: {posts}})
+    let markupPost = posts
+          .map(
+            post =>
+              `<li><p> Post title: ${post.title}</p><p>Post: ${post.body}</p><p>userId: ${post.userId}</p>
+              <ul>
+    ${post.tags.map(tag => `<li>${tag}</li>`).join('')}
+  </ul>
+              </li>`
+          )
+          .join('')
+          postsForm.innerHTML = markupPost
+
+  }
+  
+  )
+}
