@@ -160,7 +160,7 @@ function markupImage (arrayOfResults) {
 }
 
 
-// Задача 9
+// Задача 9 Добавь нового пользователя и отобрази информацию по нему.
 
  const instance = axios.create({
   baseURL: 'https://dummyjson.com/'
@@ -182,7 +182,7 @@ function onFormAddUserData(event){
   event.preventDefault();
 
   const firstName = event.target.elements.firstName.value.trim()
-  console.log(firstName)
+  // console.log(firstName)
   const lastName = event.target.elements.lastName.value.trim()
   const email = event.target.elements.email.value.trim()
   const password = event.target.elements.password.value.trim()
@@ -196,23 +196,9 @@ function onFormAddUserData(event){
   userAddByRequest({firstName ,lastName,  email, password, age, birthDate,  address: { address, city, postalCode, state  } }).then(({ data }) => {
         function createNewUserMarkup (user) {
           return `
-          
-          <p> firstName: ${user.firstName}</p><p>lastName: ${user.lastName}</p>
-          <p>email: ${user.email}</p>
-          <p>password: ${user.password}</p>
-          <p>age: ${user.age}</p>
-          <p>birthDate: ${user.birthDate}</p>
-          
-          <ul>
-          <p>User address: </p>
-          <li> Address: ${user.address.address}</li>
-          <li>City: ${user.address.city}</li>
-          <li>Postal Code: ${user.address.postalCode}</li>
-          <li>State: ${user.address.state}</li>
-
-          </ul>
-        
-          `
+          <div class="user-info-container"><p> firstName: ${user.firstName}</p><p>lastName: ${user.lastName}</p><p>email: ${user.email}</p>
+          <p>password: ${user.password}</p><p>age: ${user.age}</p><p>birthDate: ${user.birthDate}</p>      
+          <ul><p>User address:</p><li> Address: ${user.address.address}</li><li>City: ${user.address.city}</li><li>Postal Code: ${user.address.postalCode}</li><li>State: ${user.address.state}</li></ul></div>`
         }
         forUserDataMarcupPlace.innerHTML = createNewUserMarkup(data)
       })
@@ -222,27 +208,7 @@ function onFormAddUserData(event){
 
 
 
-// const usersForm = document.querySelector('#userByNameForm')
-// const usersPlace = document.querySelector('#usersByName')
-
-// usersForm.addEventListener('submit', onUsersFormSubmit)
-
-// function onUsersFormSubmit (event) {
-//   event.preventDefault()
-//   // Тут вводим event.target.elements потом значение с импута в html - name и value
-//   const usersNameInput = event.target.elements.name.value.trim()
-//   console.log(usersNameInput)
-
-//   getUserByName(usersNameInput).then(({ data: { users } }) => {
-//     let markupUser = users
-//       .map(
-//         user =>
-//           `<li><p> Вот данные User(s) с FirstName: ${user.firstName}</p><p>LastName: ${user.lastName}</p><p>Age: ${user.age}</p><p>Email: ${user.email}</p><p>Phone: ${user.phone}</p></li>`
-//       )
-//       .join('')
-//     usersPlace.innerHTML = markupUser
-//   })
-// }
+// Задача 10  Получи список постов отфильтрованных по ключевому слову и отрендери его.
 
 const instanc = axios.create({
   baseURL: 'https://dummyjson.com/'
